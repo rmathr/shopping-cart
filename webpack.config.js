@@ -24,25 +24,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /\.style.css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: true,
-            },
-          },
-          'css-loader',
-        ],
-      },
-      {
-        test: /\.style.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: !isProduction,
-              reloadAll: true,
             },
           },
           'css-loader',
