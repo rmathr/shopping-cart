@@ -77,6 +77,72 @@ const Products = (props) => {
             data={products[8]}
             addToCart={props.addToCart}
           />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[9].image}
+            data={products[9]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[10].image}
+            data={products[10]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[11].image}
+            data={products[11]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[12].image}
+            data={products[12]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[13].image}
+            data={products[13]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[14].image}
+            data={products[14]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[15].image}
+            data={products[15]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[16].image}
+            data={products[16]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[17].image}
+            data={products[17]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[18].image}
+            data={products[18]}
+            addToCart={props.addToCart}
+          />
+          <MediaCard
+            increaseCount={increaseCount}
+            image={products[19].image}
+            data={products[19]}
+            addToCart={props.addToCart}
+          />
         </section>
       </div>
     </div>

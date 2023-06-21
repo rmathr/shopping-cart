@@ -29,24 +29,23 @@ export default function MediaCard(props) {
   }, [isClicked]);
 
   return (
-    <Card sx={{ maxWidth: 345 }} className="flex flex-col">
-      <div className="w-full flex flex-col items-center">
+    <Card sx={{ width: 345 }} className="flex flex-col">
+      <div className="w-full flex flex-col items-center justify-center h-64">
         <CardMedia
           sx={{ width: 150, height: 'auto' }}
-          className="w-full justify-self-center"
+          className="w-full"
           component="img"
           image={data.image}
-          title="green iguana"
+          title={data.title}
         />
       </div>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {data.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-          ranging across all continents except Antarctica
+          {data.price}
         </Typography>
       </CardContent>
       <CardActions className="flex justify-center">

@@ -20,6 +20,27 @@ const App = () => {
     }
   };
 
+  const changeQty = (id, increment) => {
+    setCart(
+      cart.map((element) => {
+        if (element.id === id) {
+          increment ? (element.qty = element.qty + 1) : (element.qty = element.qty - 1);
+        }
+        return element;
+      })
+    );
+  };
+
+  const removeProduct = (id) => {
+    setCart(
+      cart.filter((element) => {
+        if (element.id != id) {
+          return element;
+        }
+      })
+    );
+  };
+
   useEffect(() => {
     console.log(cart);
   }, [cart]);
@@ -32,7 +53,12 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products addToCart={addToCart} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart cart={cart} changeQty={changeQty} removeProduct={removeProduct} />
+          }
+        />
       </Routes>
       {/* </BrowserRouter> */}
     </>
