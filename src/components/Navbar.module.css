@@ -1,12 +1,15 @@
 .navbar{
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 7dvh;
+    height: 10dvh;
     justify-content: space-between;
     align-items: center;
     background-color: black;
     color: whitesmoke;
+    z-index: 2;
 }
 
 .navbar_links{
@@ -14,4 +17,8 @@
     flex-direction: row;
     width: 50%;
     justify-content: space-between;
+}
+
+.active_page{
+    border: 1px solid red;
 }

@@ -12,7 +12,15 @@ const Cart = (props) => {
     />
   ));
 
-  return <div>{cart.length > 0 && productsOnCart}</div>;
+  let totalCartPrice = cart.reduce((prev, curr) => prev + curr.price * curr.qty, 0);
+
+  return (
+    <div>
+      {cart.length > 0 && <div>{productsOnCart}</div>}
+
+      <p>Total: {totalCartPrice}</p>
+    </div>
+  );
 };
 
 export default Cart;

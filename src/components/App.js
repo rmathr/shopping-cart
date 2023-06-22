@@ -47,8 +47,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
-      {/* <BrowserRouter> */}
+      <Navbar cart={cart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products addToCart={addToCart} />} />
@@ -60,7 +59,6 @@ const App = () => {
           }
         />
       </Routes>
-      {/* </BrowserRouter> */}
     </>
   );
 };

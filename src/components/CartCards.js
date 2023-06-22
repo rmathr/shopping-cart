@@ -10,6 +10,7 @@ import Button from '@mui/joy/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ClearIcon from '@mui/icons-material/Clear';
+import numeral from 'numeral';
 
 export default function CartCards(props) {
   const item = { ...props.cart };
@@ -20,7 +21,7 @@ export default function CartCards(props) {
   };
 
   const decrementQty = () => {
-    if (item.qty > 0) {
+    if (item.qty > 1) {
       props.changeQty(item.id, false);
     }
   };
@@ -44,15 +45,15 @@ export default function CartCards(props) {
       </AspectRatio>
       <CardContent>
         <Typography level="h2" fontSize="lg" id="card-description" mb={0.5}>
-          Yosemite Park
+          {item.title}
         </Typography>
         <Typography fontSize="sm" aria-describedby="card-description" mb={1}></Typography>
         <Chip variant="outlined" color="primary" size="sm" sx={{ pointerEvents: 'none' }}>
-          Cool weather all day long
+          {numeral(item.price * item.qty).format('0,0[.]00 $')}
         </Chip>
 
         <ButtonGroup aria-label="outlined button group">
-          <Button onClick={decrementQty}>
+          <Button onClick={decrementQty} disabled={item.qty < 2}>
             <RemoveIcon />
           </Button>
           <Button disabled>{item.qty}</Button>

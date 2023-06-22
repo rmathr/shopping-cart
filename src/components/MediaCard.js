@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import numeral from 'numeral';
 import snowball from '../assets/images/snowball.PNG';
 
 export default function MediaCard(props) {
@@ -41,11 +42,11 @@ export default function MediaCard(props) {
       </div>
 
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h6" component="div">
           {data.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {data.price}
+          {numeral(data.price).format('0,0[.]00 $')}
         </Typography>
       </CardContent>
       <CardActions className="flex justify-center">

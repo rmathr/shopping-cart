@@ -10,6 +10,7 @@
 }
 
 body{
-    background-color: blueviolet;
+    background-color: #f6f6f6;
     height: 100dvh;
+    overflow: hidden;
 }
