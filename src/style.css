@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -13,4 +15,5 @@ body{
     background-color: #f6f6f6;
     height: 100dvh;
     overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }

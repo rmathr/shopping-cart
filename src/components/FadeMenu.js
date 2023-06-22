@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function FadeMenu(props) {
   const [title, setTitle] = React.useState('All');
@@ -17,7 +18,7 @@ export default function FadeMenu(props) {
     props.changeCategory(category);
     setAnchorEl(null);
 
-    typeof category === 'object' ? setTitle('All') : setTitle(category);
+    typeof category === 'object' ? setTitle(title) : setTitle(category);
   };
 
   return (
@@ -28,8 +29,12 @@ export default function FadeMenu(props) {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        endIcon={<ExpandMoreIcon sx={{ color: 'black' }} />}
+        sx={{ textTransform: 'capitalize' }}
       >
-        {title}
+        <span className="w-full flex flex-row justify-between text-base text-black">
+          {title}
+        </span>
       </Button>
       <Menu
         id="fade-menu"
