@@ -16,24 +16,29 @@ import '@fontsource/roboto/400.css';
 
 export default function MediaCard(props) {
   const data = { ...props.data };
+  //   console.log(data);
   const productCart = props.cart.filter((product) => product.id == data.id);
   //   console.log(productCart[0]?.qty);
 
-  const [isClicked, setIsClicked] = useState(false);
-  //   const isClicked = props.data.isClicked;
+  //   const [isClicked, setIsClicked] = useState(false);
+  const isClicked = props.data.isClicked;
 
   const handleClick = () => {
+    props.addToCart(data);
     if (!isClicked) {
-      //   props.clickProduct(data.id);
-      setIsClicked(true);
+      props.clickProduct(data.id, false);
+      //   props.addToCart(data);
+      //   setIsClicked(true);
     }
   };
 
   useEffect(() => {
     if (isClicked) {
-      let cartObj = { ...data, isClicked: isClicked, qty: 1 };
-      props.addToCart(cartObj);
-      console.log(cartObj);
+      // let cartObj = { ...data, isClicked: isClicked, qty: 1 };
+      // props.addToCart(cartObj);
+      // console.log(cartObj);
+      // props.addToCart(data);
+      console.log(data.id);
     }
   }, [isClicked]);
 
@@ -78,18 +83,18 @@ export default function MediaCard(props) {
         </div>
       </CardContent>
       <CardActions className="flex justify-center">
-        {/* {!isClicked && ( */}
-        <Button
-          size="small"
-          variant="contained"
-          startIcon={<ShoppingCartIcon />}
-          color="success"
-          onClick={handleClick}
-        >
-          Add to Cart
-        </Button>
-        {/* )} */}
-        {/* {isClicked && (
+        {!isClicked && (
+          <Button
+            size="small"
+            variant="contained"
+            startIcon={<ShoppingCartIcon />}
+            color="success"
+            onClick={handleClick}
+          >
+            Add to Cart
+          </Button>
+        )}
+        {isClicked && (
           <ButtonGroup aria-label="outlined button group">
             <Button
               onClick={() => props.changeQty(productCart[0]?.id, false)}
@@ -102,7 +107,7 @@ export default function MediaCard(props) {
               <AddIcon />
             </Button>
           </ButtonGroup>
-        )} */}
+        )}
       </CardActions>
     </Card>
   );

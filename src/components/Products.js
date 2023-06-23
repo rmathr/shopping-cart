@@ -4,20 +4,20 @@ const MediaCard = React.lazy(() => import('./MediaCard'));
 import FadeMenu from './FadeMenu';
 import CustomBreadcrumb from './CustomBreadcrumb';
 
-async function getShopData() {
-  let url = 'https://fakestoreapi.com/products';
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
+// async function getShopData() {
+//   let url = 'https://fakestoreapi.com/products';
+//   let response = await fetch(url);
+//   let data = await response.json();
+//   return data;
+// }
 
-const products = await getShopData();
-console.log(products);
+// const products = await getShopData();
+// console.log(products);
 
 const Products = (props) => {
   const [count, setCount] = useState(0);
   const [category, setCategory] = useState('all');
-  //   const products = [...props.products];
+  const products = [...props.products];
 
   const increaseCount = () => {
     setCount(count + 1);

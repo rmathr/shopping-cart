@@ -19,25 +19,25 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [storeProducts, setStoreProducts] = useState(
     products.map((product) => {
-      return { ...product, isClicked: false, qty: null };
+      return { ...product, isClicked: false, qty: 1 };
     })
   );
 
-  //   let storeProducts = products.map((product) => {
-  //     return { ...product, isClicked: false, qty: null };
-  //   });
-  //   console.log(storeProducts);
+  // let storeProducts = products.map((product) => {
+  //   return { ...product, isClicked: false, qty: null };
+  // });
+  // console.log(storeProducts);
 
   const cartItem = {
     item: {},
     qty: null,
   };
 
-  const clickProduct = (id) => {
+  const clickProduct = (id, clicked) => {
     setStoreProducts(
       storeProducts.map((element) => {
         if (element.id === id) {
-          element.isClicked = true;
+          !clicked ? (element.isClicked = true) : (element.isClicked = false);
         }
         return element;
       })
@@ -58,7 +58,8 @@ const App = () => {
         return item;
       }
     });
-    if (obj.isClicked && searchArray.length === 0) {
+    // if (obj.isClicked && searchArray.length === 0) {
+    if (searchArray.length === 0) {
       setCart(cart.concat(obj));
     }
   };
@@ -82,6 +83,7 @@ const App = () => {
         }
       })
     );
+    clickProduct(id, true);
   };
 
   useEffect(() => {
