@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Link from '@mui/joy/Link';
+import React from 'react';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
-import Chip from '@mui/joy/Chip';
 import Typography from '@mui/joy/Typography';
 import ButtonGroup from '@mui/joy/ButtonGroup';
 import Button from '@mui/joy/Button';
@@ -14,7 +11,6 @@ import numeral from 'numeral';
 
 export default function CartCards(props) {
   const item = { ...props.cart };
-  const [qty, setQty] = useState(item.qty);
 
   const incrementQty = () => {
     props.changeQty(item.id, true);
@@ -36,20 +32,9 @@ export default function CartCards(props) {
         '&:hover': { boxShadow: 'md', borderColor: 'neutral.outlinedHoverBorder' },
       }}
     >
-      {/* <AspectRatio > */}
       <div className="w-[30%] flex flex-col items-center justify-center">
-        <img
-          src={item.image}
-          className="w-[80px] h-fit"
-          //   src="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90"
-          //   srcSet="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90&dpr=2 2x"
-          loading="lazy"
-          alt=""
-          // sx={{ width: 90, height: 'auto' }}
-        />
+        <img src={item.image} className="w-[80px] h-fit" loading="lazy" alt="" />
       </div>
-
-      {/* </AspectRatio> */}
       <CardContent>
         <div className="h-[20dvh] flex flex-col items-start justify-around">
           <Typography

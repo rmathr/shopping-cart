@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CartCards from './CartCards';
-import numeral from 'numeral';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
 import Checkout from './Checkout';
 import EmptyCart from './EmptyCart';
 
@@ -39,22 +36,10 @@ const Cart = (props) => {
         </div>
         <div className="w-[40%]  self-start">
           {cart.length > 0 && (
-            <Checkout totalCartPrice={totalCartPrice} />
-            // <Card
-            //   variant="outlined"
-            //   orientation="horizontal"
-            //   sx={{
-            //     '&:hover': {
-            //       boxShadow: 'md',
-            //       borderColor: 'neutral.outlinedHoverBorder',
-            //     },
-            //   }}
-            // >
-            //   <div className="w-full h-[40dvh] flex flex-col items-center">
-            //     {/* {border border-black} */}
-            //     <p>Total: {numeral(totalCartPrice).format('0,0[.]00 $')}</p>
-            //   </div>
-            // </Card>
+            <Checkout
+              totalCartPrice={totalCartPrice}
+              handleCheckout={props.handleCheckout}
+            />
           )}
         </div>
       </div>

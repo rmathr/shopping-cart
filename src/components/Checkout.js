@@ -1,12 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import numeral from 'numeral';
 import Card from '@mui/joy/Card';
 import Button from '@mui/joy/Button';
 import Typography from '@mui/joy/Typography';
-import CardContent from '@mui/joy/CardContent';
 import credit_card from '../assets/images/credit-card.png';
 
 const Checkout = (props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+    props.handleCheckout();
+  };
+
   return (
     <>
       <Card
@@ -47,6 +54,7 @@ const Checkout = (props) => {
             color="success"
             variant="solid"
             sx={{ '--Button-radius': '30px', width: '60%' }}
+            onClick={handleClick}
           >
             <span className="text-lg font-normal">Proceed to checkout</span>
           </Button>

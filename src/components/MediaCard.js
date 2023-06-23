@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -17,31 +16,15 @@ import '@fontsource/roboto/400.css';
 
 export default function MediaCard(props) {
   const data = { ...props.data };
-  //   console.log(data);
   const productCart = props.cart.filter((product) => product.id == data.id);
-  //   console.log(productCart[0]?.qty);
-
-  //   const [isClicked, setIsClicked] = useState(false);
   const isClicked = props.data.isClicked;
 
   const handleClick = () => {
     props.addToCart(data);
     if (!isClicked) {
       props.clickProduct(data.id, false);
-      //   props.addToCart(data);
-      //   setIsClicked(true);
     }
   };
-
-  useEffect(() => {
-    if (isClicked) {
-      // let cartObj = { ...data, isClicked: isClicked, qty: 1 };
-      // props.addToCart(cartObj);
-      // console.log(cartObj);
-      // props.addToCart(data);
-      console.log(data.id);
-    }
-  }, [isClicked]);
 
   return (
     <Card sx={{ width: '100%', padding: '24px' }} className="flex flex-col">

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
 import Products from './Products';
@@ -22,6 +22,15 @@ const App = () => {
       return { ...product, isClicked: false, qty: 1 };
     })
   );
+
+  const handleCheckout = () => {
+    setStoreProducts(
+      products.map((product) => {
+        return { ...product, isClicked: false, qty: 1 };
+      })
+    );
+    setCart([]);
+  };
 
   const clickProduct = (id, clicked) => {
     setStoreProducts(
@@ -67,10 +76,6 @@ const App = () => {
     clickProduct(id, true);
   };
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   return (
     <>
       <Navbar cart={cart} />
@@ -92,7 +97,12 @@ const App = () => {
         <Route
           path="/cart"
           element={
-            <Cart cart={cart} changeQty={changeQty} removeProduct={removeProduct} />
+            <Cart
+              cart={cart}
+              changeQty={changeQty}
+              removeProduct={removeProduct}
+              handleCheckout={handleCheckout}
+            />
           }
         />
       </Routes>

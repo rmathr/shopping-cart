@@ -1,28 +1,11 @@
-import React, { useState, useEffect, Suspense } from 'react';
-// import MediaCard from './MediaCard';
+import React, { useState, Suspense } from 'react';
 const MediaCard = React.lazy(() => import('./MediaCard'));
-import FadeMenu from './FadeMenu';
 import CustomBreadcrumb from './CustomBreadcrumb';
 import Loading from './Loading';
 
-// async function getShopData() {
-//   let url = 'https://fakestoreapi.com/products';
-//   let response = await fetch(url);
-//   let data = await response.json();
-//   return data;
-// }
-
-// const products = await getShopData();
-// console.log(products);
-
 const Products = (props) => {
-  const [count, setCount] = useState(0);
   const [category, setCategory] = useState('all');
   const products = [...props.products];
-
-  const increaseCount = () => {
-    setCount(count + 1);
-  };
 
   const changeCategory = (selectedCategory) => {
     console.log(selectedCategory);
@@ -71,9 +54,6 @@ const Products = (props) => {
             <h1 className="text-4xl py-6 text-black">Shop</h1>
             <CustomBreadcrumb changeCategory={changeCategory} />
           </div>
-
-          {/* <FadeMenu changeCategory={changeCategory} /> */}
-
           <section className="grid grid-cols-3 w-full gap-6 justify-stretch pt-6">
             {cards}
           </section>
