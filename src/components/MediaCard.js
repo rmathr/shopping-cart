@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -66,7 +67,7 @@ export default function MediaCard(props) {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             <span className="text-xl font-bold text-black">
-              {numeral(data.price).format('0,0[.]00 $')}
+              {numeral(data.price).format('$ 0,0[.]00')}
             </span>
           </Typography>
           <div className="flex flex-row items-center justify-center w-full">
@@ -99,11 +100,21 @@ export default function MediaCard(props) {
             <Button
               onClick={() => props.changeQty(productCart[0]?.id, false)}
               disabled={productCart[0]?.qty < 2}
+              color="success"
             >
               <RemoveIcon />
             </Button>
-            <Button disabled>{productCart[0]?.qty}</Button>
-            <Button onClick={() => props.changeQty(productCart[0]?.id, true)}>
+            <Button
+              variant="outlined"
+              color="success"
+              sx={{ cursor: 'default', pointerEvents: 'none' }}
+            >
+              {productCart[0]?.qty}
+            </Button>
+            <Button
+              color="success"
+              onClick={() => props.changeQty(productCart[0]?.id, true)}
+            >
               <AddIcon />
             </Button>
           </ButtonGroup>

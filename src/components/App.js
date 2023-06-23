@@ -23,16 +23,6 @@ const App = () => {
     })
   );
 
-  // let storeProducts = products.map((product) => {
-  //   return { ...product, isClicked: false, qty: null };
-  // });
-  // console.log(storeProducts);
-
-  const cartItem = {
-    item: {},
-    qty: null,
-  };
-
   const clickProduct = (id, clicked) => {
     setStoreProducts(
       storeProducts.map((element) => {
@@ -44,21 +34,12 @@ const App = () => {
     );
   };
 
-  //   const addToCart = () => {
-  //     storeProducts.map((item) => {
-  //       if (item.isClicked && cart.map()) {
-  //         setCart(cart.concat(item));
-  //       }
-  //     });
-  //   };
-
   const addToCart = (obj) => {
     const searchArray = cart?.filter((item) => {
       if (item.id === obj.id) {
         return item;
       }
     });
-    // if (obj.isClicked && searchArray.length === 0) {
     if (searchArray.length === 0) {
       setCart(cart.concat(obj));
     }
