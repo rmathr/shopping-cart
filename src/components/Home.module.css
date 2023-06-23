@@ -6,11 +6,13 @@
     background-image: url(../assets/images/home-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left bottom;
+    background-position: right center;
+    /* background-attachment: fixed; */
     height: 90dvh;
 }
 
 .box{
     width: 50%;
-    color: aliceblue;
+    color: #FFF;
+    /* background-color: rgba(0,0,0,0.8); */
 }

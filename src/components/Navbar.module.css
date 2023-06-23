@@ -17,8 +17,9 @@
     flex-direction: row;
     width: 50%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .active_page{
-    border: 1px solid red;
+    border-bottom: 3px solid #FFF;
 }

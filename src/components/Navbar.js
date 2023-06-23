@@ -10,8 +10,8 @@ const Navbar = (props) => {
     // <BrowserRouter>
     <nav className={`${styles.navbar} pl-5 pr-5`}>
       <NavLink to="/">
-        <div className="brand">
-          <p>MyBrandName</p>
+        <div className="brand flex flex-row items-center text-3xl">
+          <p>TrendyHaven</p>
         </div>
       </NavLink>
       <div className={styles.navbar_links}>
@@ -34,11 +34,11 @@ const Navbar = (props) => {
           About
         </NavLink>
         <NavLink to="/cart">
-          <Badge badgeContent={props.cart.length} color="secondary">
+          <Badge badgeContent={props.cart.length} color="primary">
             <IconButton
               color="primary"
               aria-label="view shopping cart"
-              style={{ padding: 0 }}
+              style={{ padding: 0, color: 'white' }}
             >
               <ShoppingBagIcon style={{ width: 30, height: 'auto' }} />
             </IconButton>

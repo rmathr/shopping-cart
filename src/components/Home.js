@@ -11,13 +11,17 @@ const Home = () => {
     <div className={styles.home}>
       <div className="flex flex-col items-center text-center h-[50dvh] justify-evenly">
         <section className={styles.box}>
-          <h1 className="text-5xl pb-3">Welcome to TrendyHaven!</h1>
-          <p>
+          <h1 className="text-6xl pb-3">Welcome to TrendyHaven!</h1>
+          {/* <p className="text-xl">
             Discover the ultimate online shopping experience where style meets technology,
-            and elegance merges with innovation. TrendyHaven is your one-stop destination
-            for fashion-forward clothing and exquisite jewelry for both men and women.
-            Step into a world of endless possibilities and let us redefine your shopping
-            journey.
+            and elegance merges with innovation.{' '}
+          </p> */}
+
+          <p className="text-xl">
+            {' '}
+            TrendyHaven is your one-stop destination for fashion-forward clothing and
+            exquisite jewelry for both men and women. Step into a world of endless
+            possibilities and let us redefine your shopping journey.
           </p>
         </section>
         <Button variant="contained" sx={{ borderRadius: 16 }}>

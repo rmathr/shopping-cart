@@ -3,6 +3,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 const MediaCard = React.lazy(() => import('./MediaCard'));
 import FadeMenu from './FadeMenu';
 import CustomBreadcrumb from './CustomBreadcrumb';
+import Loading from './Loading';
 
 // async function getShopData() {
 //   let url = 'https://fakestoreapi.com/products';
@@ -65,7 +66,7 @@ const Products = (props) => {
   return (
     <div className="w-full h-[90dvh] flex flex-col items-center overflow-auto">
       <div className="w-[90%] flex flex-col items-center py-[24px]">
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loading />}>
           <div className="flex flex-col w-full items-start justify-start">
             <h1 className="text-4xl py-6 text-black">Shop</h1>
             <CustomBreadcrumb changeCategory={changeCategory} />

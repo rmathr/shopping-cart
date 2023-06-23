@@ -4,6 +4,7 @@ import numeral from 'numeral';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import Checkout from './Checkout';
+import EmptyCart from './EmptyCart';
 
 const Cart = (props) => {
   const cart = [...props.cart];
@@ -20,11 +21,12 @@ const Cart = (props) => {
   let totalItems = cart.reduce((prev, curr) => prev + curr.qty, 0);
   return (
     <div className="w-full h-[90dvh] flex flex-col items-center overflow-auto">
+      {cart.length === 0 && <EmptyCart />}
       <div className="w-[90%] flex flex-row items-center justify-between py-[24px]">
         <div className="w-[55%]">
           {cart.length > 0 && (
-            <div className=" pr-5">
-              <div className="pb-[48px] font-bold flex flex-row justify-between">
+            <div className="">
+              <div className="pb-[48px] font-bold flex flex-row justify-between text-2xl">
                 <p>Your shopping Cart</p>
                 <p>
                   {totalItems} {totalItems < 2 ? 'item' : 'items'}
