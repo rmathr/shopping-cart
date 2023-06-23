@@ -4,20 +4,27 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import numeral from 'numeral';
 import Rating from '@mui/material/Rating';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 import '@fontsource/roboto/400.css';
 
 export default function MediaCard(props) {
   const data = { ...props.data };
+  const productCart = props.cart.filter((product) => product.id == data.id);
+  //   console.log(productCart[0]?.qty);
 
   const [isClicked, setIsClicked] = useState(false);
+  //   const isClicked = props.data.isClicked;
 
   const handleClick = () => {
     if (!isClicked) {
+      //   props.clickProduct(data.id);
       setIsClicked(true);
     }
   };
@@ -71,6 +78,7 @@ export default function MediaCard(props) {
         </div>
       </CardContent>
       <CardActions className="flex justify-center">
+        {/* {!isClicked && ( */}
         <Button
           size="small"
           variant="contained"
@@ -80,6 +88,21 @@ export default function MediaCard(props) {
         >
           Add to Cart
         </Button>
+        {/* )} */}
+        {/* {isClicked && (
+          <ButtonGroup aria-label="outlined button group">
+            <Button
+              onClick={() => props.changeQty(productCart[0]?.id, false)}
+              disabled={productCart[0]?.qty < 2}
+            >
+              <RemoveIcon />
+            </Button>
+            <Button disabled>{productCart[0]?.qty}</Button>
+            <Button onClick={() => props.changeQty(productCart[0]?.id, true)}>
+              <AddIcon />
+            </Button>
+          </ButtonGroup>
+        )} */}
       </CardActions>
     </Card>
   );

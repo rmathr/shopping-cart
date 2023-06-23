@@ -17,6 +17,7 @@ console.log(products);
 const Products = (props) => {
   const [count, setCount] = useState(0);
   const [category, setCategory] = useState('all');
+  //   const products = [...props.products];
 
   const increaseCount = () => {
     setCount(count + 1);
@@ -30,7 +31,6 @@ const Products = (props) => {
   };
 
   let filteredProducts = [];
-
   switch (category) {
     case 'all':
       filteredProducts = products.filter((product) => product.category != 'electronics');
@@ -55,6 +55,9 @@ const Products = (props) => {
       key={product.id}
       data={product}
       addToCart={props.addToCart}
+      changeQty={props.changeQty}
+      cart={props.cart}
+      clickProduct={props.clickProduct}
       className="justify-stretch"
     />
   ));
