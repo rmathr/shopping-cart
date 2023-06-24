@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
 import Products from './Products';
@@ -78,34 +78,36 @@ const App = () => {
 
   return (
     <>
-      <Navbar cart={cart} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/products"
-          element={
-            <Products
-              addToCart={addToCart}
-              changeQty={changeQty}
-              cart={cart}
-              products={storeProducts}
-              clickProduct={clickProduct}
-            />
-          }
-        />
-        <Route path="/about" element={<About />} />
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              cart={cart}
-              changeQty={changeQty}
-              removeProduct={removeProduct}
-              handleCheckout={handleCheckout}
-            />
-          }
-        />
-      </Routes>
+      <HashRouter basename="/">
+        <Navbar cart={cart} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/products"
+            element={
+              <Products
+                addToCart={addToCart}
+                changeQty={changeQty}
+                cart={cart}
+                products={storeProducts}
+                clickProduct={clickProduct}
+              />
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cart={cart}
+                changeQty={changeQty}
+                removeProduct={removeProduct}
+                handleCheckout={handleCheckout}
+              />
+            }
+          />
+        </Routes>
+      </HashRouter>
     </>
   );
 };
