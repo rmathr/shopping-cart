@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://rmathr.github.io/shopping-cart/",
+  "homepage": "https://rmathr.github.io/shopping-cart/#",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot --port 3000",
     "build": "webpack --mode production",
