@@ -78,7 +78,7 @@ const App = () => {
 
   return (
     <>
-      <HashRouter basename="/">
+      <HashRouter basename="https://rmathr.github.io/shopping-cart/">
         <Navbar cart={cart} />
         <Routes>
           <Route path="/" element={<Home />} />
